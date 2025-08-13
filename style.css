@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+/**/
+/* body { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/* } */
+
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  /* background-color: hotpink; */
+  /* padding: 8px; */
+  gap: 10px;
+}
+
+.row-child {
+  flex: 1;
+  border: 4px solid peachpuff;
+  /* background-color: tomato; */
+}
+
+.row-child:hover {
+  background-color: peru;
+}
