@@ -5,9 +5,13 @@ body {
 }
 
 button {
-  background-color: red;
+  background-color: peachpuff;
   height: 47px;
   flex: 0 0 auto;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 30px;
+  padding-bottom: 10px;
 }
 
 /**/
@@ -34,7 +38,7 @@ button {
 
 .row-child {
   flex: 1;
-  border: 1px solid peachpuff;
+  border: 0.5px solid black;
   /* background-color: tomato; */
 }
 

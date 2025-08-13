@@ -7,8 +7,6 @@ container.appendChild(button);
 
 let grid = []; // Array of rows [[row1], [row2], ...]
 
-let rowNum = 50;
-let columnNum = 50;
 
 if (container === null) {
   console.log("Container not found");
@@ -31,7 +29,12 @@ function generateGrid(rowNum, columnNum) {
   grid.forEach((rows) => {
 
     for (let child of rows.children) {
-      child.addEventListener('mouseover', () => child.style.backgroundColor = 'black')
+      child.addEventListener('mouseover', (event) => {
+
+        child.style.backgroundColor = getRandomizeHexColor();
+        event.stopImmediatePropagation();
+      })
+
     };
   })
 
@@ -52,11 +55,22 @@ function reloadGrid(rowNum, columnNum) {
   generateGrid(rowNum, columnNum);
 }
 
-generateGrid(rowNum, columnNum);
+
+function getRandomizeHexColor() {
+  // 16777215 decimal for 0xffffff
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16); // convert to hex
+
+  return "#" + randomColor.padStart(6, '0');
+}
+
+generateGrid(50, 50);
 
 button.addEventListener('click', (event) => {
   let rowNumIn = parseInt(prompt("enter number or rows: \nMax is 100"));
   let columnNumIn = parseInt(prompt("enter number of columns: \nMax is 100"))
+
+  let rowNum = 0;
+  let columnNum = 0;
 
   if (rowNum < 100 && columnNum < 100) {
     rowNum = rowNumIn;
@@ -68,6 +82,6 @@ button.addEventListener('click', (event) => {
   }
 
   reloadGrid(rowNum, columnNum);
-
+  event.stopImmediatePropagation();
 })
 
